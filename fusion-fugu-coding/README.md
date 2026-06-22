@@ -1,5 +1,10 @@
 # fusion-fugu-coding
 
+[![Release](https://img.shields.io/github/v/release/jeongsk/fusion-fugu-coding?sort=semver&display_name=tag)](https://github.com/jeongsk/fusion-fugu-coding/releases)
+[![Install](https://img.shields.io/badge/install-claude%20--plugin--dir-2ea44f)](#2-installation)
+[![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-Plugin-7c3aed?logo=anthropic&logoColor=white)](https://docs.claude.com/en/docs/claude-code/plugins)
+[![License: MIT](https://img.shields.io/github/license/jeongsk/fusion-fugu-coding)](LICENSE)
+
 A Claude Code plugin that adds a **multi-reviewer code review committee** (Fusion-lite)
 and a **controlled plan → fix → verify orchestration** (Fugu-lite) on top of Claude
 Code. Claude Code stays the executor; this plugin supplies repeatable orchestration and
