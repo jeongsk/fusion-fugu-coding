@@ -1,0 +1,28 @@
+{
+  "decision": "request_changes",
+  "severity": "high",
+  "summary": "Token refresh retry can loop indefinitely when the refresh endpoint returns 401, and the new branch is untested.",
+  "issues": [
+    {
+      "title": "Infinite retry loop on persistent 401 from refresh endpoint",
+      "severity": "high",
+      "file": "src/auth/refresh.ts",
+      "evidence": "retryRefresh() calls itself on any failure (line 42) without decrementing or bounding attempts; a permanent 401 (revoked refresh token) never terminates, so the request hangs and spins.",
+      "suggested_fix": "Bound retries (e.g. max 2) and break out on 401/403 by surfacing a re-login error instead of retrying.",
+      "reviewer": "bug"
+    },
+    {
+      "title": "No test for the refresh-failure path",
+      "severity": "medium",
+      "file": "src/auth/__tests__/refresh.test.ts",
+      "evidence": "Tests cover the happy-path refresh only; the new failure/retry branch (refresh.ts:38-50) has no test, so the loop bug above could regress silently.",
+      "suggested_fix": "Add a test where the refresh endpoint returns 401 and assert it stops after the retry cap and throws a re-login error.",
+      "reviewer": "test"
+    }
+  ],
+  "confidence": "high",
+  "follow_up_commands": [
+    "pnpm test src/auth/__tests__/refresh.test.ts",
+    "/fugu-fix \"bound refresh retries and stop on 401\""
+  ]
+}

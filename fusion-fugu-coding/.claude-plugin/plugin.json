@@ -1,0 +1,19 @@
+{
+  "name": "fusion-fugu-coding",
+  "displayName": "Fusion-Fugu Coding Orchestrator",
+  "description": "Fusion-lite multi-reviewer code review plus Fugu-lite plan/fix/verify orchestration. Adds /fusion-review, /fugu-plan, /fugu-fix, /fugu-verify with safety hooks and deterministic helper scripts. Claude Code stays the executor; this plugin supplies repeatable orchestration and specialized review perspectives.",
+  "version": "0.1.0",
+  "author": {
+    "name": "jeongsk"
+  },
+  "license": "MIT",
+  "keywords": [
+    "code-review",
+    "orchestration",
+    "fusion",
+    "fugu",
+    "multi-agent",
+    "security",
+    "verify"
+  ]
+}

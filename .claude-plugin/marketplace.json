@@ -1,0 +1,13 @@
+{
+  "name": "fusion-fugu-marketplace",
+  "owner": {
+    "name": "jeongsk"
+  },
+  "plugins": [
+    {
+      "name": "fusion-fugu-coding",
+      "source": "./fusion-fugu-coding",
+      "description": "Fusion-lite multi-reviewer code review + Fugu-lite plan/fix/verify coding orchestration."
+    }
+  ]
+}
