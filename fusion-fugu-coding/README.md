@@ -5,6 +5,8 @@
 [![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-Plugin-7c3aed?logo=anthropic&logoColor=white)](https://docs.claude.com/en/docs/claude-code/plugins)
 [![License: MIT](https://img.shields.io/github/license/jeongsk/fusion-fugu-coding)](LICENSE)
 
+**English** | [한국어](README.ko.md)
+
 A Claude Code plugin that adds a **multi-reviewer code review committee** (Fusion-lite)
 and a **controlled plan → fix → verify orchestration** (Fugu-lite) on top of Claude
 Code. Claude Code stays the executor; this plugin supplies repeatable orchestration and
@@ -46,27 +48,40 @@ It also ships:
 
 ## 2. Installation
 
-### Option A — local dev (fastest)
+The plugin is published at **[jeongsk/fusion-fugu-coding](https://github.com/jeongsk/fusion-fugu-coding)**.
+The repository root is itself a plugin marketplace (`.claude-plugin/marketplace.json`),
+so you can install straight from GitHub.
 
-Run Claude Code with the plugin directory:
+### Option A — install from GitHub (recommended)
 
-```bash
-claude --plugin-dir /path/to/fusion-fugu-coding
+In Claude Code, add the marketplace and install:
+
+```
+/plugin marketplace add jeongsk/fusion-fugu-coding
+/plugin install fusion-fugu-coding@fusion-fugu-marketplace
 ```
 
-After editing plugin files during development, reload without restarting:
+`/plugin marketplace add` accepts the `owner/repo` GitHub shorthand (or the full
+`https://github.com/jeongsk/fusion-fugu-coding.git` URL). Later, manage it from
+`/plugin` (enable / disable / uninstall), and pull new releases with:
+
+```
+/plugin marketplace update fusion-fugu-marketplace
+```
+
+### Option B — clone for local development
+
+Point `--plugin-dir` at the plugin folder **inside** the cloned repo:
+
+```bash
+git clone https://github.com/jeongsk/fusion-fugu-coding.git
+claude --plugin-dir fusion-fugu-coding/fusion-fugu-coding
+```
+
+After editing plugin files, reload without restarting Claude Code:
 
 ```
 /reload-plugins
-```
-
-### Option B — via the bundled marketplace
-
-This repo's root contains `.claude-plugin/marketplace.json`. From Claude Code:
-
-```
-/plugin marketplace add /path/to/this/repo
-/plugin install fusion-fugu-coding@fusion-fugu-marketplace
 ```
 
 ### Verify it loaded
